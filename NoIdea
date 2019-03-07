@@ -1,1 +1,6 @@
-
+import sys
+#need to clean the input
+def cleanInput()
+  stdin = []
+  for line in sys.stdin:
+      stdin.append([x for x in line if x != "\n" and x != " "])
