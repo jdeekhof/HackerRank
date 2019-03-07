@@ -1,0 +1,9 @@
+string = 'AABCAAADA'
+k = 3
+
+
+for t in range(0, len(string), k):
+    for u in range(0, k, k):
+        used = set()
+        print("".join([x for x in string[u + t:t + k] if x not in used and (used.add(x) or True)]))
+
