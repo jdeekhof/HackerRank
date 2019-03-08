@@ -1,6 +1,36 @@
 import sys
-#need to clean the input
-def cleanInput()
-  stdin = []
-  for line in sys.stdin:
-      stdin.append([x for x in line if x != "\n" and x != " "])
+
+def read_stdin():
+    stdin = []
+    for line in sys.stdin:
+        stdin.append([str(x).split(" ") for x in line.split("\n") if not x == ""])
+    return(stdin)
+
+def calculate_happiness(stdin):
+    happiness = 0
+    a = set(stdin[2][0])
+    b = set(stdin[3][0])
+    for n in stdin[1][0]:
+        if n in a:
+            happiness = happiness + 1 
+        elif n in b:
+            happiness = happiness - 1
+        else:
+            pass
+    return(happiness)
+    
+stdin = read_stdin()
+print(calculate_happiness(stdin))
+
+
+BEST ANSWER FROM DISCUSSION
+n, m = raw_input().split()
+
+sc_ar = raw_input().split()
+
+A = set(raw_input().split())
+B = set(raw_input().split())
+print sum([(i in A) - (i in B) for i in sc_ar])
+
+##did not think that I could have assigned the stdin in different line, would have been easier
+##line 33 was clever to use Trues as 1 and False as 0s and then map
